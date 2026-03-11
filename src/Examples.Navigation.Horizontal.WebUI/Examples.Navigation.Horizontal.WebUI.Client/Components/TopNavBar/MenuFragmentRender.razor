@@ -1,0 +1,70 @@
+@* Top-level menu item *@
+@if (!HasParent)
+{
+  @if (!HasChildren)
+  {
+    <li class="nav-item">
+      <NavLink class="@GetCssClassForA()" href="@Link" Match="NavLinkMatch.All">
+        @if (HasFontClassEmoji)
+        {
+          <MenuItemEmoji FontEmoji="@FontClassEmoji" />
+        }
+        @Title
+      </NavLink>
+    </li>
+  }
+  else
+  {
+    <li class="nav-item dropdown">
+      <a class="@GetCssClassForA()" href="@Link" role="button" data-bs-toggle="dropdown" aria-expanded="@GetAriaExpanded(MenuFragment.Id)" @onclick="() => ToggleSubMenu(MenuFragment.Id)">
+        @if (HasFontClassEmoji)
+        {
+          <MenuItemEmoji FontEmoji="@FontClassEmoji" />
+        }
+        @Title
+      </a>
+      <ul class="@GetUlSubMenuCssClass(MenuFragment.Id)">
+        @foreach (var child in MenuFragment.Children!)
+        {
+          <MenuFragmentRender MenuFragment="child" MenuLevel="@(MenuLevel + 1)" />
+        }
+      </ul>
+    </li>
+  }
+
+}
+@* Submenu item *@
+else
+{
+  @if (HasChildren)
+  {
+    <li class="@GetCssClassForLi()">
+      <a class="@GetCssClassForA()" href="@Link" role="button" data-bs-toggle="dropdown" aria-expanded="@GetAriaExpanded(MenuFragment.Id)" @onmouseover="() => OpenSubMenu(MenuFragment.Id)" @onmouseout="() => CloseSubMenu(MenuFragment.Id)">
+        @if (HasFontClassEmoji)
+        {
+          <MenuItemEmoji FontEmoji="@FontClassEmoji" />
+        }
+        @Title
+      </a>
+      <ul class="@GetUlSubMenuCssClass(MenuFragment.Id)">
+        @foreach (var child in MenuFragment.Children!)
+        {
+          <MenuFragmentRender MenuFragment="child" MenuLevel="@(MenuLevel + 1)" />
+        }
+      </ul>
+    </li>
+  }
+  else
+  {
+    <li class ="@GetCssClassForLi()">
+      <NavLink class="@GetCssClassForA()" href="@Link" Match="NavLinkMatch.All">
+        @if (HasFontClassEmoji)
+        {
+          <MenuItemEmoji FontEmoji="@FontClassEmoji" />
+        }
+        @Title
+      </NavLink>
+    </li>
+  }
+}
+

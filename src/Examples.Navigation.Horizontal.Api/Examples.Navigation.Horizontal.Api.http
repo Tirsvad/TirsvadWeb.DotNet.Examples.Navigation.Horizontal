@@ -1,6 +1,0 @@
-@Examples.Navigation.Horizontal.Api_HostAddress = http://localhost:5211
-
-GET {{Examples.Navigation.Horizontal.Api_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

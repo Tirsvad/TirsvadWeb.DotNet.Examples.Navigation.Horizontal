@@ -1,5 +1,4 @@
 <Solution>
-  <Project Path="src/Examples.Navigation.Horizontal.Api/Examples.Navigation.Horizontal.Api.csproj" Id="c584b57b-99bb-4d9d-ae3d-aef0d4d70ab9" />
   <Project Path="src/Examples.Navigation.Horizontal.Application/Examples.Navigation.Horizontal.Application.csproj" Id="082a9cd4-3833-405b-b015-22061ba22ffa" />
   <Project Path="src/Examples.Navigation.Horizontal.Domain/Examples.Navigation.Horizontal.Domain.csproj" Id="1fcb4b4a-230f-4d92-a023-f64cdd01d0d4" />
   <Project Path="src/Examples.Navigation.Horizontal.Infrastructure/Examples.Navigation.Horizontal.Infrastructure.csproj" Id="7676eaad-a6b8-4d44-b287-c80be740caf0" />

@@ -1,6 +1,7 @@
 // Copyright (c) 2026 TirsvadWeb. All rights reserved. 
 //  No warranty, explicit or implicit, provided.
 
+using Examples.Navigation.Horizontal.Infrastructure;
 using Examples.Navigation.Horizontal.WebUI.Components;
 
 namespace Examples.Navigation.Horizontal.WebUI;
@@ -9,14 +10,16 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        var builder = WebApplication.CreateBuilder(args);
+        WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+        _ = builder.Services.AddInfrastructureServices();
 
         // Add services to the container.
-        builder.Services.AddRazorComponents()
+        _ = builder.Services.AddRazorComponents()
             .AddInteractiveServerComponents()
             .AddInteractiveWebAssemblyComponents();
 
-        var app = builder.Build();
+        WebApplication app = builder.Build();
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
@@ -25,18 +28,18 @@ public class Program
         }
         else
         {
-            app.UseExceptionHandler("/Error");
+            _ = app.UseExceptionHandler("/Error");
             // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-            app.UseHsts();
+            _ = app.UseHsts();
         }
 
-        app.UseStatusCodePagesWithReExecute("/not-found", createScopeForStatusCodePages: true);
-        app.UseHttpsRedirection();
+        _ = app.UseStatusCodePagesWithReExecute("/not-found", createScopeForStatusCodePages: true);
+        _ = app.UseHttpsRedirection();
 
-        app.UseAntiforgery();
+        _ = app.UseAntiforgery();
 
-        app.MapStaticAssets();
-        app.MapRazorComponents<App>()
+        _ = app.MapStaticAssets();
+        _ = app.MapRazorComponents<App>()
             .AddInteractiveServerRenderMode()
             .AddInteractiveWebAssemblyRenderMode()
             .AddAdditionalAssemblies(typeof(Client._Imports).Assembly);

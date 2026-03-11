@@ -11,5 +11,10 @@ public class MenuFragment : IEntity
     public required string Title { get; set; }
     public string? Url { get; set; } = string.Empty;
     public string? FontClassEmoji { get; set; }
+    public int Order { get; set; }
     public Guid? ParentId { get; set; }
+
+    #region Navigation Properties
+    public virtual ICollection<MenuFragment>? Children { get; set; }
+    #endregion
 }

@@ -14,4 +14,8 @@
     <ProjectReference Include="..\Examples.Navigation.Horizontal.Application\Examples.Navigation.Horizontal.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>

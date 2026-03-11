@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Examples.Navigation.Horizontal.Infrastructure\Examples.Navigation.Horizontal.Infrastructure.csproj" />
     <ProjectReference Include="..\Examples.Navigation.Horizontal.WebUI.Client\Examples.Navigation.Horizontal.WebUI.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="10.0.3" />
   </ItemGroup>

@@ -9,29 +9,29 @@ namespace Examples.Navigation.Horizontal.Infrastructure.Repositories;
 public abstract class RepositoryBase<TEntity> : IRepository<TEntity>
     where TEntity : class, IEntity
 {
-    public IEnumerable<TEntity> Items => throw new NotImplementedException();
+    public IEnumerable<TEntity> Items { get; protected set; } = [];
 
     public Task<TEntity> AddAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
-        _ = Items.Append(entity);
+        Items = Items.Append(entity);
         return Task.FromResult(entity);
     }
 
     public Task<IEnumerable<TEntity>> AddRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
     {
-        _ = Items.Concat(entities);
+        Items = Items.Concat(entities);
         return Task.FromResult(entities);
     }
 
     public Task DeleteAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
-        _ = Items.Where(e => e != entity);
+        Items = Items.Where(e => e != entity);
         return Task.CompletedTask;
     }
 
     public Task DeleteRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
     {
-        _ = Items.Where(e => !entities.Contains(e));
+        Items = Items.Where(e => !entities.Contains(e));
         return Task.CompletedTask;
     }
 
@@ -48,13 +48,13 @@ public abstract class RepositoryBase<TEntity> : IRepository<TEntity>
 
     public Task UpdateAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
-        _ = Items.Select(e => e == entity ? entity : e);
+        Items = Items.Select(e => e == entity ? entity : e);
         return Task.CompletedTask;
     }
 
     public Task UpdateRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
     {
-        _ = Items.Select(e => entities.Contains(e) ? e : e);
+        Items = Items.Select(e => entities.Contains(e) ? e : e);
         return Task.CompletedTask;
     }
 }

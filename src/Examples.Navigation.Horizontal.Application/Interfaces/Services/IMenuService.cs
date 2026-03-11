@@ -3,9 +3,9 @@
 
 using Examples.Navigation.Horizontal.Domain.Entities;
 
-namespace Examples.Navigation.Horizontal.Application.Interfaces.Repositories;
+namespace Examples.Navigation.Horizontal.Application.Interfaces.Services;
 
-public interface IMenuRepository : IRepository<MenuFragment>
+public interface IMenuService
 {
-
+    Task<IEnumerable<MenuFragment>> GetMenuTreeAsync();
 }
