@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="src/Examples.Navigation.Horizontal.Application/Examples.Navigation.Horizontal.Application.csproj" Id="082a9cd4-3833-405b-b015-22061ba22ffa" />
+  <Project Path="src/Examples.Navigation.Horizontal.Domain/Examples.Navigation.Horizontal.Domain.csproj" Id="1fcb4b4a-230f-4d92-a023-f64cdd01d0d4" />
+  <Project Path="src/Examples.Navigation.Horizontal.Infrastructure/Examples.Navigation.Horizontal.Infrastructure.csproj" Id="7676eaad-a6b8-4d44-b287-c80be740caf0" />
+  <Project Path="src/Examples.Navigation.Horizontal.WebUI/Examples.Navigation.Horizontal.WebUI.Client/Examples.Navigation.Horizontal.WebUI.Client.csproj" Id="2bd0a57d-a0d2-4da1-b6d7-f4c7b45d1385" />
+  <Project Path="src/Examples.Navigation.Horizontal.WebUI/Examples.Navigation.Horizontal.WebUI/Examples.Navigation.Horizontal.WebUI.csproj" Id="823387cb-7f9a-49cd-8034-0107b994f3b4" />
+</Solution>

@@ -1,0 +1,25 @@
+@* @rendermode InteractiveAuto *@
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand text-center fs-6 pt-0 pb-0" style="line-height:1;" href="">TirsvadWeb<br />Web Examples</a>
+    <button class="navbar-toggler @NavButtonCssClass" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-label="Toggle navigation" @onclick="ToggleNavMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="@NavBarCssClass" id="navbarCollapse" @onclick="ToggleNavMenu">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        @if (_menuItems != null && _menuItems.Count() > 0)
+        {
+          @foreach (var item in _menuItems)
+          {
+            if (item.ParentId is null)
+            {
+              <MenuFragmentRender MenuFragment=@item />
+            }
+          }
+        }
+      </ul>
+    </div>
+  </div>
+</nav>

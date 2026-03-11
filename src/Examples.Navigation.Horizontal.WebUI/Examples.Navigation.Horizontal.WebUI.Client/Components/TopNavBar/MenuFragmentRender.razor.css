@@ -1,0 +1,79 @@
+/* TopNavBar.razor.css - Custom styles for the TopNavBar component */
+
+/* Submenu positioning */
+.dropdown-submenu {
+  position: relative;
+}
+
+.submenu-right {
+  top: 0;
+  left: 100%;
+  display: none;
+  position: absolute;
+}
+
+.dropdown-submenu:hover > .submenu-right {
+  display: block;
+}
+
+.dropdown-menu > .dropdown-submenu:hover > .submenu-right {
+  display: block;
+}
+
+/* Submenu support for Bootstrap 5 */
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -0.125rem;
+  display: none;
+  position: absolute;
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
+}
+
+/* Optional: keep parent open when submenu is hovered */
+.dropdown-menu > .dropdown-submenu:hover > .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  padding-left: 0.5rem;
+}
+
+.dropdown-item.dropdown-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li.dropdown-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Pure CSS submenu support for no-JS environments */
+li > ul {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 1000;
+}
+
+li:hover > ul,
+li:focus-within > ul {
+  display: block;
+}
+
+/* Nested submenu (submenu to the right) */
+li > ul ul {
+  left: 100%;
+  top: 0;
+}
+
+/*nav-link {
+  justify-content: space-between;
+}*/
