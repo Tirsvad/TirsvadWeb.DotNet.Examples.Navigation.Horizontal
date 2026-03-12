@@ -14,10 +14,15 @@ public class Program
 
         _ = builder.Services.AddInfrastructureServices();
 
+        // Add configuration for the navigation bar from a JSON file.
+        _ = builder.Configuration.AddJsonFile("wwwroot/navBar.json", optional: false, reloadOnChange: true);
+
         // Add services to the container.
         _ = builder.Services.AddRazorComponents()
             .AddInteractiveServerComponents()
             .AddInteractiveWebAssemblyComponents();
+
+
 
         WebApplication app = builder.Build();
 

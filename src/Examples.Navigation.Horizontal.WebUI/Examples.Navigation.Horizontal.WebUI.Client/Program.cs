@@ -15,6 +15,9 @@ internal class Program
 
         _ = builder.Services.AddInfrastructureServices();
 
+        // Load the navigation bar configuration from the navBar.json file and add it to the configuration system.
+        await NavBarConfigurationLoader.LoadAsync(builder);
+
         await builder.Build().RunAsync();
     }
 }
