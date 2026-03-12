@@ -1,0 +1,61 @@
+{
+  "NavBar": {
+    "Title": "TirsvadWeb<br />Web Examples"
+  },
+  "NavItems": [
+    {
+      "Id": "8fdd56d5-fd85-46cb-9c75-5192aca81dc2",
+      "Title": "Home",
+      "Url": "/",
+      "Order": 1
+    },
+    {
+      "Id": "d1c9e5b8-3a2f-4c9e-8b6a-1f2e3d4c5b6a",
+      "Title": "Menu 1",
+      "Url": "/",
+      "Order": 2,
+      "SubItems": [
+        {
+          "Id": "a1b2c3d4-e5f6-7890-abcd-1234567890ab",
+          "Title": "SubMenu 1.1",
+          "Url": "/",
+          "Order": 1,
+          "SubItems": [
+            {
+              "Id": "c1d2e3f4-a5b6-7890-cdef-1234567890cd",
+              "Title": "SubMenu 1.1.1",
+              "Url": "/",
+              "Order": 1
+            },
+            {
+              "Id": "d1e2f3a4-b5c6-7890-def0-1234567890de",
+              "Title": "SubMenu 1.1.2",
+              "Url": "/",
+              "Order": 2,
+              "SubItems": [
+                {
+                  "Id": "e1f2a3b4-c5d6-7890-ef01-1234567890ef",
+                  "Title": "SubMenu 1.1.2.1",
+                  "Url": "/",
+                  "Order": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "b2c3d4e5-f6a7-8901-bcde-2345678901bc",
+          "Title": "SubMenu 1.2",
+          "Url": "/",
+          "Order": 2
+        }
+      ]
+    },
+    {
+      "Id": "65eb3faa-785a-4642-a45c-435103378666",
+      "Title": "About",
+      "Url": "/about",
+      "Order": 3
+    }
+  ]
+}

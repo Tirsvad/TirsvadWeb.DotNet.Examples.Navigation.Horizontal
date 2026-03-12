@@ -3,7 +3,7 @@
 # ![Logo][Logo] Navigation Horizontal Example
 
 ## Overview
-This project demonstrates a horizontal navigation menu in a Blazor WebAssembly application, using in-memory data to define the menu structure. It is designed as an example for building dynamic, multi-level navigation menus in modern .NET Blazor applications.
+This project demonstrates a horizontal navigation menu in a Blazor WebAssembly application. On branch `01-MenuBasedOnJson`, the menu structure is defined in the `navBar.json` file (not in code), making it easy to customize the navigation without recompiling. It is designed as an example for building dynamic, multi-level navigation menus in modern .NET Blazor applications.
 
 The solution is organized into several projects following clean architecture principles:
 - **Domain**: Core business entities (e.g., `MenuFragment`).
@@ -19,7 +19,7 @@ The solution is organized into several projects following clean architecture pri
 - Easily extensible for real data sources or additional features
 
 ## How It Works
-1. **Menu Data**: The menu structure is defined in-memory in the `MenuRepository` class. Each menu item is a `MenuFragment` object, supporting nested children for submenus.
+1. **Menu Data**: The menu structure is defined in the `navBar.json` file located at `src/Examples.Navigation.Horizontal.WebUI/Examples.Navigation.Horizontal.WebUI/wwwroot/navBar.json`. Each menu item can have nested `SubItems` for submenus.
 2. **Dependency Injection**: The infrastructure project registers the repository and services for dependency injection, making them available to the Blazor components.
 3. **Blazor Components**: The `TopNavBar` and `MenuFragmentRender` components render the navigation bar and its items recursively, supporting multi-level dropdowns.
 4. **UI Rendering**: The navigation bar is rendered horizontally at the top of the page, with dropdowns for submenus. The menu is responsive and collapses on smaller screens.
@@ -59,8 +59,52 @@ The solution is organized into several projects following clean architecture pri
 
 ## Customization
 
-- To modify the menu structure, edit the `SeedData` method in `MenuRepository.cs`.
-- To change the UI, update the Blazor components in the `Components/TopNavBar` folder.
+### Editing the Menu Structure (branch 01-MenuBasedOnJson)
+
+To modify the menu structure, edit the `navBar.json` file located at:
+
+```
+src/Examples.Navigation.Horizontal.WebUI/Examples.Navigation.Horizontal.WebUI/wwwroot/navBar.json
+```
+
+#### Example `navBar.json` structure:
+
+```json
+{
+  "NavBar": {
+    "Title": "TirsvadWeb<br />Web Examples"
+  },
+  "NavItems": [
+    {
+      "Id": "8fdd56d5-fd85-46cb-9c75-5192aca81dc2",
+      "Title": "Home",
+      "Url": "/",
+      "Order": 1
+    },
+    {
+      "Id": "d1c9e5b8-3a2f-4c9e-8b6a-1f2e3d4c5b6a",
+      "Title": "Menu 1",
+      "Url": "/",
+      "Order": 2,
+      "SubItems": [
+        {
+          "Id": "a1b2c3d4-e5f6-7890-abcd-1234567890ab",
+          "Title": "SubMenu 1.1",
+          "Url": "/",
+          "Order": 1
+        }
+      ]
+    }
+  ]
+}
+```
+
+- Each menu item requires a unique `Id`, a `Title`, a `Url`, and an `Order` (for sorting).
+- To add submenus, use the `SubItems` array inside a menu item.
+
+After saving changes to `navBar.json`, restart the application to see the updated menu.
+
+To change the UI, update the Blazor components in the `Components/TopNavBar` folder.
 
 ## License
 
