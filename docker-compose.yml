@@ -1,0 +1,34 @@
+services:
+  build:
+    build:
+      context: .
+      target: build
+    image: tirsvadweb-navbar-build
+
+  test:
+    build:
+      context: .
+      target: test
+    image: tirsvadweb-navbar-test
+    depends_on:
+      - build
+
+  publish:
+    build:
+      context: .
+      target: publish
+    image: tirsvadweb-navbar-publish
+    depends_on:
+      - build
+
+  final:
+    build:
+      context: .
+      target: final
+    image: tirsvadweb-navbar
+    depends_on:
+      - publish
+    ports:
+      - "5401:5401"
+    environment:
+      - ASPNETCORE_URLS=http://0.0.0.0:5401

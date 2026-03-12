@@ -3,6 +3,7 @@
 # ![Logo][Logo] Navigation Horizontal Example
 
 ## Overview
+
 This project demonstrates a horizontal navigation menu in a Blazor WebAssembly application. On branch `01-MenuBasedOnJson`, the menu structure is defined in the `navBar.json` file (not in code), making it easy to customize the navigation without recompiling. It is designed as an example for building dynamic, multi-level navigation menus in modern .NET Blazor applications.
 
 The solution is organized into several projects following clean architecture principles:
@@ -13,18 +14,21 @@ The solution is organized into several projects following clean architecture pri
 - **API**: (Optional) Example API endpoints.
 
 ## Features
+
 - Horizontal navigation bar with multi-level dropdown support
 - Menu items and hierarchy defined in-memory (no database required)
 - Responsive design with collapse/expand for smaller screens
 - Easily extensible for real data sources or additional features
 
 ## How It Works
+
 1. **Menu Data**: The menu structure is defined in the `navBar.json` file located at `src/Examples.Navigation.Horizontal.WebUI/Examples.Navigation.Horizontal.WebUI/wwwroot/navBar.json`. Each menu item can have nested `SubItems` for submenus.
 2. **Dependency Injection**: The infrastructure project registers the repository and services for dependency injection, making them available to the Blazor components.
 3. **Blazor Components**: The `TopNavBar` and `MenuFragmentRender` components render the navigation bar and its items recursively, supporting multi-level dropdowns.
 4. **UI Rendering**: The navigation bar is rendered horizontally at the top of the page, with dropdowns for submenus. The menu is responsive and collapses on smaller screens.
 
 ## Project Structure
+
 - `src/Examples.Navigation.Horizontal.Domain`: Contains the `MenuFragment` entity.
 - `src/Examples.Navigation.Horizontal.Application`: Contains interfaces like `IMenuService`.
 - `src/Examples.Navigation.Horizontal.Infrastructure`: Contains the in-memory `MenuRepository` and dependency injection setup.
@@ -35,6 +39,7 @@ The solution is organized into several projects following clean architecture pri
 ### Prerequisites
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop) (optional, for containerization)
 
 ### Running the Application
 
@@ -56,6 +61,15 @@ The solution is organized into several projects following clean architecture pri
    dotnet run --project src/Examples.Navigation.Horizontal.WebUI/Examples.Navigation.Horizontal.WebUI/Examples.Navigation.Horizontal.WebUI.csproj
    ```
 5. Open your browser and navigate to the provided URL (usually `https://localhost:5001` or similar).
+
+### Running with Docker-Compose
+
+1. Build and run the application using Docker-Compose:
+   ```sh
+   docker-compose up --build
+   ```
+1. Open your browser and navigate to `http://localhost:5401` to see the application running.
+
 
 ## Customization
 
@@ -109,6 +123,13 @@ To change the UI, update the Blazor components in the `Components/TopNavBar` fol
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Branches
+
+- **main**: The primary branch with the latest stable code.
+- **01-MenuBasedOnJson**: Demonstrates menu structure defined in `navBar.json` for dynamic navigation
+- **02-MenuBasedOnDatabase**: (Planned) Example of menu structure stored in a database with Entity Framework Core.
+- 
 
 <!-- Links Badges -->
 [contributors-shield]: https://img.shields.io/github/contributors/TirsvadWeb/DotNet.Examples.Navigation.Horizontal?style=for-the-badge
